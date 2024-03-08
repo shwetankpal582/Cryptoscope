@@ -55,6 +55,8 @@ const StatTile: React.FC<props> = ({ data, isNotBg }) => {
         let timeSeries: any = marketData?.["Time Series (Digital Currency Monthly)"]
         Object.keys(marketData?.["Time Series (Digital Currency Monthly)"])?.map((child) => tempDataSet.push(parseInt(timeSeries[child]["2b. high (USD)"]).toFixed(2)))
         setDatasets(tempDataSet.reverse())
+
+        // react-hooks/exhaustive-deps
     }, [marketData])
 
 

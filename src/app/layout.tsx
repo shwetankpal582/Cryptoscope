@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar"
 const pixelify_Sans = Pixelify_Sans({
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap",
   variable: '--font-pixel',
 });
 
