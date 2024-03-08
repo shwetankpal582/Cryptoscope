@@ -13,7 +13,7 @@ const pixelify_Sans = Pixelify_Sans({
 const gadems = localFont({
   src: [
     {
-      path: '../../public/assets/gadems-font/GademsPersonalUseOnly-Yz43o.otf',
+      path: '../../public/assets/AR-Destine/ar-destine.otf',
       weight: '400'
     },
   ],
