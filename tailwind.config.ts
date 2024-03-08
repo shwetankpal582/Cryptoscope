@@ -30,8 +30,8 @@ const config: Config = {
       },
       fontFamily: {
         pixel: ['var(--font-pixel)'],
-        gadems: ["gadems"],
-        ardestine: ["ardestine"]
+        gadems: ["var(--font-gadems)"],
+        ardestine: ["var(--font-ardestine)"],
       },
     },
     colors: {

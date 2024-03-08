@@ -2,13 +2,33 @@ import type { Metadata } from "next";
 import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar"
-
+import localFont from '@next/font/local'
 const pixelify_Sans = Pixelify_Sans({
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
   variable: '--font-pixel',
 });
+
+const gadems = localFont({
+  src: [
+    {
+      path: '/public/assets/gadems-font/GademsPersonalUseOnly-Yz43o.otf',
+      weight: '400'
+    },
+  ],
+  variable: '--font-gadems'
+})
+const ardestine = localFont({
+  src: [
+    {
+      path: '/public/assets/AR-Destine/ar-destine.otf',
+      weight: '400'
+    },
+  ],
+  variable: '--font-ardestine'
+})
+
 
 export const metadata: Metadata = {
   title: "Cryptoscope",
@@ -24,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={pixelify_Sans.variable}
+        className={`${pixelify_Sans.variable} ${gadems.variable} ${ardestine.variable}`}
       >
         <Navbar />
         {children}
@@ -32,3 +52,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+
