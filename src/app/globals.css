@@ -4,26 +4,26 @@
 @tailwind utilities;
 
 
-@font-face {
+/* @font-face {
   font-family: 'ardestine';
   src: url('/public/assets/AR-Destine/ar-destine.otf');
-  /* font-weight: 400; */
-  /* font-style: normal; */
+
+  
 }
 
 @font-face {
   font-family: 'gadems';
   src: url('/public/assets/gadems-font/GademsPersonalUseOnly-Yz43o.otf');
-  /* font-weight: 400; */
+
   font-style: normal;
-}
+} */
 
 
-@layer base {
+/* @layer base {
   html {
     font-family: gadems, "ardestine";
   }
-}
+} */
 
 :root {
   --foreground-rgb: 0, 0, 0;

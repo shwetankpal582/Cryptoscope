@@ -19,7 +19,7 @@ const Page = () => {
     },]
 
     return (
-        <nav className='w-screen fixed p-4 bg-tilesBackground '>
+        <nav className=' font-gadems w-screen fixed p-4 bg-tilesBackground '>
             <div className={`flex  items-center justify-between ${nav ? "mb-2 sm:mb-0" : ""}`}>
                 <a href="/" className='flex items-center'>
                     <img src="/assets/logo.png" alt="logo" className='h-12 mr-1' />
