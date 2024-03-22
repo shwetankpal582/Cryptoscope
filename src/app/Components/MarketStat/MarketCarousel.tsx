@@ -1,24 +1,26 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { ArrowBackIosNewRounded, ArrowForwardIosRounded } from '@mui/icons-material';
 import StatTile from './StatTile';
+import { CoinTimeSeries } from '@/app/interface';
 
 interface props {
-    data: any,
+    data: CoinTimeSeries[],
 }
 
 const MarketCarousel: React.FC<props> = ({ data }) => {
-    const [currentSlide, setCurrentSlide] = useState<Number>(0)
-    const slidesChanged = (e: Number) => {
+
+    const [currentSlide, setCurrentSlide] = useState<number>(0)
+    const slidesChanged = (e: number) => {
         if (currentSlide !== e) setCurrentSlide(e)
     }
     const prevBtn = () => {
-        currentSlide == 0 ? setCurrentSlide(2) : setCurrentSlide((prev: any) => prev - 1)
+        currentSlide == 0 ? setCurrentSlide(2) : setCurrentSlide((prev: number) => prev - 1)
     }
     const nextBtn = () => {
-        currentSlide == 2 ? setCurrentSlide(0) : setCurrentSlide((prev: any) => prev + 1)
+        currentSlide == 2 ? setCurrentSlide(0) : setCurrentSlide((prev: number) => prev + 1)
     }
 
     return (

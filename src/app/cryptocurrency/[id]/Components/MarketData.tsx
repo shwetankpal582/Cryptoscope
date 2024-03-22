@@ -1,12 +1,15 @@
 "use client"
+import { CoinData, PricePercentObjectInterface } from '@/app/interface'
 import { useState } from 'react'
 interface props {
-    data: any
+    data: CoinData
 }
 const MarketData: React.FC<props> = ({ data }) => {
-    const [currentCurrency, setCurrentCurrency] = useState<any>("usd")
-    const [priceChangeTime, setPriceChangeTime] = useState<any>("24h")
-    const pricePercentObject: any = {
+    const [currentCurrency, setCurrentCurrency] = useState<string>("usd")
+    const [priceChangeTime, setPriceChangeTime] = useState<string>("24h")
+
+
+    const pricePercentObject: PricePercentObjectInterface = {
         "24h": "price_change_percentage_24h",
         "7d": "price_change_percentage_7d",
         "14d": "price_change_percentage_14d",
@@ -15,12 +18,6 @@ const MarketData: React.FC<props> = ({ data }) => {
         "200d": "price_change_percentage_200d",
         "1y": "price_change_percentage_1y",
     }
-
-    // setCurrentPriceCurrency(Object.keys(data.market_data.current_price))
-    // setMarketCap(Object.keys(data.market_data.market_cap))
-    // setTotalVolume(Object.keys(data.market_data.total_volume))
-    // setPriceChangeCurrency(Object.keys(data.market_data.price_change_24h_in_currency))
-
     const currencyChange = (e: any) => {
         setCurrentCurrency(e.target.value)
     }
@@ -47,7 +44,7 @@ const MarketData: React.FC<props> = ({ data }) => {
                 <h4 className='w-full'>Market Cap :{data?.market_cap[currentCurrency]}</h4>
                 <h4 className='w-full'>Total Volume :{data?.total_volume?.[currentCurrency]} </h4>
                 <div className='w-full flex items-end '>
-                    <h3 >Price Change % : {data?.[pricePercentObject[priceChangeTime]]} </h3>
+                    <h3 >Price Change % : {data?.[pricePercentObject[priceChangeTime as keyof typeof pricePercentObject] as keyof CoinData]} </h3>
                     <select name="currentPrice" onChange={priceTimeChange} value={priceChangeTime} className='ml-2 bg-contentBackground rounded focus:outline-none'>
                         <option value="24h">24h</option>
                         <option value="7d">7d</option>

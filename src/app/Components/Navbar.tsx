@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
+import Image from 'next/image'
 const Page = () => {
 
     const [nav, setNav] = useState<boolean>(false)
@@ -22,7 +23,8 @@ const Page = () => {
         <nav className=' font-gadems w-screen fixed p-4 bg-tilesBackground '>
             <div className={`flex  items-center justify-between ${nav ? "mb-2 sm:mb-0" : ""}`}>
                 <a href="/" className='flex items-center'>
-                    <img src="/assets/logo.png" alt="logo" className='h-12 mr-1' />
+                    <Image src="/assets/logo.png" width={48} height={48} alt="logo" className='h-12 mr-1 object-contain' />
+                    {/* <img src="/assets/logo.png" alt="logo" className='h-12 mr-1' /> */}
                     <span className='font-semibold text-white '>Cryptoscope</span>
                 </a>
                 <button className='sm:hidden rounded p-1 sm:hidden hover:bg-contentBackground' onClick={() => setNav(!nav)}>

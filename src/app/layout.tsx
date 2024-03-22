@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar"
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 const pixelify_Sans = Pixelify_Sans({
   subsets: ["latin"],
   weight: ["400"],

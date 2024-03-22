@@ -1,10 +1,12 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Home = () => {
     return (
         <div className='min-h-screen py-20 flex w-full items-center justify-center flex-wrap'>
             <div className='sm:order-2 sm:w-2/5'>
-                <img src="/assets/green.png" alt="crypto" className='w-full max-w-xs sm:max-w-max' />
+                <Image src="/assets/green.png" alt="crypto" width={700} height={700} className='w-full max-w-xs sm:max-w-max' />
+                {/* <img src="/assets/green.png" alt="crypto" className='w-full max-w-xs sm:max-w-max' /> */}
             </div>
             <div className=' sm:order-1 w-full sm:w-3/5 text-center sm:text-left'>
                 <h1 className='text-3xl xxs:text-4xl md:text-[42px] lg:text-6xl my-2'>Cryptoscope</h1>

@@ -9,15 +9,16 @@ import {
     PointElement, Legend, Tooltip,
     Filler
 } from "chart.js"
+import { CoinTimeSeries, TimeSeriesData } from '@/app/interface';
 
-// import axios from 'axios';
+
 
 
 
 ChartJS.register(LineElement, Filler, CategoryScale, LinearScale, PointElement, Legend, Tooltip)
 
 interface props {
-    data: any,
+    data: CoinTimeSeries,
     isNotBg: boolean,
 
 }
@@ -26,6 +27,7 @@ const StatTile: React.FC<props> = ({ data, isNotBg }) => {
 
     const [labels, setLabels] = useState<any>([])
     const [datasets, setDatasets] = useState<any>([])
+    // eslint-disable-next-line
     const [marketData, setMarketData] = useState<any>(data)
 
     const month: any = {
@@ -51,8 +53,8 @@ const StatTile: React.FC<props> = ({ data, isNotBg }) => {
         Object.keys(marketData?.["Time Series (Digital Currency Monthly)"])?.map((child) => tempLabel.push(`${month[child.split("-")[1]]} ${child.split("-")[0]}`))
         setLabels(tempLabel.reverse())
 
-        let tempDataSet: any = []
-        let timeSeries: any = marketData?.["Time Series (Digital Currency Monthly)"]
+        let tempDataSet: string[] = []
+        let timeSeries: TimeSeriesData = marketData?.["Time Series (Digital Currency Monthly)"]
         Object.keys(marketData?.["Time Series (Digital Currency Monthly)"])?.map((child) => tempDataSet.push(parseInt(timeSeries[child]["2b. high (USD)"]).toFixed(2)))
         setDatasets(tempDataSet.reverse())
 

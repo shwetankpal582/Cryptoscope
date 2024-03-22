@@ -1,15 +1,21 @@
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { db } from "../firebaseConfig"
+import { CoinData } from '../interface';
+import Image from 'next/image';
+
+
+
 const Popular = async () => {
     async function fetchData() {
-        let data: any = []
-        const snapshot: any = await getDocs(query(collection(db, "currencyHistory"), orderBy('market_cap_rank')));
+        let data: CoinData[] = []
+        const snapshot = await getDocs(query(collection(db, "currencyHistory"), orderBy('market_cap_rank')));
         for (let i = 0; i < 3; i++) {
-            data.push(snapshot.docs[i].data());
+            data.push(snapshot.docs[i].data() as CoinData);
         }
         return data
     }
-    let data: any = await fetchData()
+    let data: CoinData[] = await fetchData()
+
     return (
         <div className='min-h-screen pt-24 pb-16 w-full flex flex-col items-center justify-between' id="popular">
             <div className='text-center mb-10 sm:mb-0'>
@@ -22,7 +28,8 @@ const Popular = async () => {
                     <a href={`/cryptocurrency/${child.symbol}`} key={i} className='w-2/6   min-w-[250px]  max-w-[350px] p-2 cursor-pointer'>
                         <div className='bg-newTileBackground rounded-xl p-2 hover:bg-contentBackground ease-linear duration-300'>
                             <div className='w-full flex justify-center items-center '>
-                                <img src={child.image.large} alt={child.id} className='w-full object-contain rounded' />
+                                <Image src={child.image.large} alt={child.id} width={300} height={300} className='w-full object-contain rounded' />
+                                {/* <img src={child.image.large} alt={child.id} className='w-full object-contain rounded' /> */}
                             </div>
                             <div className='flex justify-between w-full'>
                                 <p className='font-pixel text-base md:text-xl max-w-1/2 text-ellipsis overflow-hidden whitespace-nowrap'>{child?.name}</p>

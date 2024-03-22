@@ -8,19 +8,20 @@ import StatTile from '@/app/Components/MarketStat/StatTile'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '@/app/firebaseConfig'
 import dynamic from 'next/dynamic'
+import { CoinData } from '@/app/interface'
 
 
 const page = async ({ params }: { params: { id: string } }) => {
 
     async function fetchData() {
-        let data: any = []
+        let data: CoinData[] = []
         const snapshot: any = await getDocs(query(collection(db, "currencyHistory"), where("symbol", "==", params.id)));
         for (let i = 0; i < snapshot.docs.length; i++) {
-            data.push(snapshot.docs[i].data());
+            data.push(snapshot.docs[i].data() as CoinData);
         }
         return data
     }
-    const data: any = await fetchData()
+    const data: CoinData[] = await fetchData()
 
 
     return (
