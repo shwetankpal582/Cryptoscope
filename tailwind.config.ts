@@ -32,6 +32,7 @@ const config: Config = {
         pixel: ['var(--font-pixel)'],
         gadems: ["var(--font-gadems)"],
         ardestine: ["var(--font-ardestine)"],
+        montserrat: ["var(--font-montserrat)"]
       },
     },
     colors: {

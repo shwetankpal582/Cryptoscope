@@ -42,7 +42,6 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(190.59deg, #020202 1.41%, #01171C 34.27%, #000000 67.14%, #01171C 100%) no-repeat;
-  /* background-repeat: no-repeat; */
   min-height: 100vh;
 }
 

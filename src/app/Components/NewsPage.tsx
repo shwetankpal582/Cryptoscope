@@ -6,10 +6,10 @@ const NewsPage = async () => {
     async function fetchData() {
         let data: Article[] = []
         const response = await fetch(`https://newsapi.org/v2/everything?sources=wired&q=cryptocurrency&apiKey=${process.env.newsApiKey}`).then((res) => res.json())
-        for (let i = 0; i < 5; i++) {
+        let tempStopper = response.articles.length > 5 ? 5 : response.articles.length
+        for (let i = 0; i < tempStopper; i++) {
             data.push(response.articles[i] as Article);
         }
-        // console.log(data)
         return data
     }
     let data: Article[] = await fetchData()

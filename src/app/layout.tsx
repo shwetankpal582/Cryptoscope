@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
-import { Pixelify_Sans } from "next/font/google";
+import { Pixelify_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar"
+import Footer from "./Components/Footer"
 import localFont from 'next/font/local'
 const pixelify_Sans = Pixelify_Sans({
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
   variable: '--font-pixel',
+});
+
+const montserrat = Montserrat({
+
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: '--font-montserrat',
 });
 
 const gadems = localFont({
@@ -44,10 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${pixelify_Sans.variable} ${gadems.variable} ${ardestine.variable}`}
+        className={`${pixelify_Sans.variable} ${gadems.variable} ${ardestine.variable} ${montserrat.variable} `}
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
