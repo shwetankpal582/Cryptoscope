@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='font-gadems w-full  px-4 pt-4 bg-newTileBackground '>
             <div className='flex flex-col items-center mx-auto text-center'>
                 <h2 className='text-2xl mb-2'>Cryptoscope</h2>
-                <a href="https://github.com/visshal14" target="_blank" className='rounded-full p-2 text-center bg-contentBackground w-[40px] h-[40px] block hover:bg-newTileBackground ease-linear duration-300'>
+                <a href="https://github.com/shwetankpal582" target="_blank" className='rounded-full p-2 text-center bg-contentBackground w-[40px] h-[40px] block hover:bg-newTileBackground ease-linear duration-300'>
                     <GitHub />
                 </a>
                 <div className='flex justify-center space-x-4 my-2 '>
